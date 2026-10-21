@@ -7,4 +7,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "altscodex-aos-sdk"
 include(":sdk")
-// include(":sample") // W2 단계에서 데모 앱 모듈을 추가한다(JitPack 배포 대상 아님).
+include(":sample") // 데모 앱. JitPack 배포 대상 아님(sdk 만 publish).

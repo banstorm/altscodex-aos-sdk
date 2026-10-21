@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AltsCodex Sample</string>
+    <string name="sign_in">Sign in</string>
+    <string name="session">Session</string>
+    <string name="sign_out">Sign out</string>
+    <string name="missing_client_id">local.properties 에 client_id 를 넣으세요 (altscodex.clientId, altscodex.redirectUri)</string>
+    <string name="signed_out">Signed out</string>
+</resources>
