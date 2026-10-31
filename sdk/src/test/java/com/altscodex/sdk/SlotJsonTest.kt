@@ -56,6 +56,13 @@ class SlotJsonTest {
         assertEquals("slot_missing", invalid(null).reason)
     }
 
+    @Test fun ignoresUnknownLeaseObject() {
+        val none = parse("""{"id":42,"token_nickname":"N","content_address":"0xabc","tr_cnt":1,"lease":{"state":"none","expires_at":null}}""")
+        assertEquals(Slot("42", "N", "0xabc", 1), (none as SlotParse.Ok).slot)
+        val borrowed = parse("""{"id":42,"token_nickname":"N","lease":{"state":"borrowed","expires_at":"2026-11-30T00:00:00Z"}}""")
+        assertEquals(Slot("42", "N", null, 0), (borrowed as SlotParse.Ok).slot)
+    }
+
     @Test fun optionalFieldsDefault() {
         val slot = (parse("""{"id":1,"token_nickname":"N","content_address":null}""") as SlotParse.Ok).slot
         assertNull(slot.contentAddress)
